@@ -1,0 +1,39 @@
+# Copyright (c) 2025 Custom Company
+# SPDX-License-Identifier: Apache-2.0
+
+description: Texas Instruments ADS9224R ADC
+
+compatible: "ti,ads9224r"
+
+include: spi-device.yaml
+
+properties:
+  drdy-gpios:
+    type: phandle-array
+    description: |
+      Data ready pin.
+      
+      The DRDY pin signals when a conversion is complete and data
+      is ready to be read. This signal is active low by default.
+
+  channels:
+    type: int
+    required: true
+    description: Number of input channels available on the device
+    enum:
+      - 2
+      - 4
+
+  reset-gpios:
+    type: phandle-array
+    description: |
+      Reset pin.
+      
+      Optional external hardware reset pin. If specified, this pin will be
+      set active during initialization to reset the device.
+
+  spi-max-frequency:
+    required: true
+    description: |
+      Maximum SPI bus frequency supported by the device.
+      Typical maximum frequency is 16 MHz.
