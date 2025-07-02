@@ -25,8 +25,8 @@
 /* Number of samples to take for each channel */
 #define SAMPLE_COUNT 10
 
-/* Maximum value for 24-bit ADC (2^24 - 1) */
-#define ADC_MAX_VALUE 16777215
+/* Maximum value for 16-bit ADC (2^16 - 1) */
+#define ADC_MAX_VALUE 65535
 
 /* Buffer to store ADC samples */
 static uint32_t sample_buffer[SAMPLE_COUNT];
@@ -44,7 +44,7 @@ static const struct adc_sequence sequence = {
     .channels = BIT(0),
     .buffer = sample_buffer,
     .buffer_size = sizeof(sample_buffer),
-    .resolution = 24,
+    .resolution = 16,
     .oversampling = 0,
     .calibrate = false,
 };

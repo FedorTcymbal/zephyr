@@ -224,7 +224,7 @@ static int ads9224r_start_read(const struct device *dev,
     struct ads9224r_data *data = dev->data;
     int ret;
 
-    if (sequence->resolution != 24) {
+    if (sequence->resolution != 16) {
         LOG_ERR("Unsupported ADC resolution %d", sequence->resolution);
         return -EINVAL;
     }
